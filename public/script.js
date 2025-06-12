@@ -50,3 +50,13 @@ form.onsubmit = async (e) => {
 };
 
 fetchTodos();
+
+const deleteAllBtn = document.getElementById("delete-all-btn");
+
+deleteAllBtn.addEventListener("click", async () => {
+  if (confirm("Are you sure you want to delete all tasks?")) {
+    await fetch("/api/todos", { method: "DELETE" });
+    fetchTodos();
+  }
+});
+

@@ -63,4 +63,11 @@ app.delete("/api/todos/:id", (req, res) => {
   res.status(204).send();
 });
 
+// DELETE all todos
+app.delete("/api/todos", (req, res) => {
+  writeTodos([]); // Clear all todos
+  res.status(204).send();
+});
+
+
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
